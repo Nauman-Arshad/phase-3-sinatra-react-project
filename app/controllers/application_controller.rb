@@ -102,4 +102,11 @@ end
     end
   end
 
+
+  delete '/todos/category/:category_id' do
+    Todo.where(category_id: params[:category_id]).destroy_all
+    { message: "Todos Refresh" }.to_json
+  end
+
+
 end
